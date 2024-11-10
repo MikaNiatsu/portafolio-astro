@@ -1,0 +1,84 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="My Portfolio" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div class="bubble-container fixed inset-0 pointer-events-none">
+      {Array.from({ length: 20 }).map((_, i) => (
+        <div
+          class="bubble absolute rounded-full bg-primary-light/20 dark:bg-primary-dark/20"
+          style={`
+            left: ${Math.random() * 100}%;
+            width: ${Math.random() * 100 + 20}px;
+            height: ${Math.random() * 100 + 20}px;
+            animation-delay: -${Math.random() * 20}s;
+          `}
+        />
+      ))}
+    </div>
+    <slot />
+    <button
+      id="theme-toggle"
+      class="fixed bottom-5 right-5 p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg"
+    >
+      <span class="dark:hidden">🌙</span>
+      <span class="hidden dark:inline">☀️</span>
+    </button>
+  </body>
+</html>
+
+<script>
+  const themeToggle = document.getElementById('theme-toggle');
+  
+  function updateTheme() {
+    if (document.documentElement.classList.contains('dark')) {
+      localStorage.theme = 'dark';
+    } else {
+      localStorage.theme = 'light';
+    }
+  }
+
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+  }
+
+  themeToggle?.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    updateTheme();
+  });
+</script>
+
+<style is:global>
+  @keyframes bubble {
+    0% {
+      transform: translateY(100vh) scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh) scale(2);
+      opacity: 0;
+    }
+  }
+
+  .bubble {
+    animation: bubble 20s linear infinite;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

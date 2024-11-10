@@ -1,0 +1,701 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+
+const skills = [
+  { name: "JavaScript", icon: "javascript" },
+  { name: "TypeScript", icon: "typescript" },
+  { name: "React", icon: "react" },
+  { name: "Java", icon: "java" },
+  { name: "SpringBoot", icon: "spring" },
+  { name: "SQL", icon: "sql" },
+  { name: "HTML", icon: "html" },
+  { name: "CSS", icon: "css" },
+  { name: "Tailwind", icon: "tailwind" },
+  { name: "Astro", icon: "astro" },
+  { name: "Next.js", icon: "nextjs" },
+  { name: "PHP", icon: "php" },
+  { name: "Laravel", icon: "laravel" },
+  { name: "Node.js", icon: "nodejs" },
+  { name: "Python", icon: "python" },
+  { name: "Git", icon: "git" },
+  { name: "Bash", icon: "bash" },
+];
+
+const projects = [
+  {
+    title: "Calculator IPv4",
+    description:
+      "A calculator for IPv4 addresses created with PHP, HTML, and CSS. The calculator can calculate IPv4 addresses specifics.",
+    link: "https://liquid-suzette-mikadev-a83261db.koyeb.app/",
+    image: "src/assets/ipv4.png",
+  },
+  {
+    title: "Class of PHP",
+    description: "A class of PHP, made with react. The class can be used to create simple web pages with PHP.",
+    link: "#",
+    image: "src/assets/classphp.png",
+  },
+  {
+    title: "Class of HTML and CSS",
+    description: "A class of HTML and CSS, made with react. The class can be used to create simple web pages.",
+    link: "#",
+    image: "src/assets/classhtml.png",
+  },
+  {
+    title: "Class of JavaScript",
+    description: "A class of JavaScript, made with react. The class can be used learn JavaScript logic.",
+    link: "#",
+    image: "src/assets/classjs.png",
+  },{
+    title: "Website CEO example",
+    description: "A website created with PHP and Tailwind. The website have animations and is responsive.",
+    link: "#",
+    image: "src/assets/web.png",
+  },
+];
+
+const certificates = [
+  {
+    name: "COMPLEMENTARIA VIRTUAL EN ARQUITECTURA DE COMPUTADORES",
+    issuer: "Servicio Nacional de Aprendizaje (SENA)",
+    date: "2021",
+    link: "#",
+  },
+  {
+    name: "Fundamentos profesionales del desarrollo de software, por Microsoft y LinkedIn",
+    issuer: "Microsoft y LinkedIn",
+    date: "2023",
+    link: "https://www.linkedin.com/learning/certificates/9e3d04369dd5f1fc64bc9664dadfb0016b46853fbcb15f82525a0392fffafd14?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BU9HFAXbDTy%2BdKyx6ikwA3w%3D%3D",
+  },
+  {
+    name: "Fundamentos esenciales de la programación",
+    issuer: "LinkedIn",
+    date: "2023",
+    link: "https://www.linkedin.com/learning/certificates/bc74b51657e118ff67901dae410437def37dd0cb85fd5d1004f0ba8e4e3db6ce?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BU9HFAXbDTy%2BdKyx6ikwA3w%3D%3D",
+  },
+  {
+    name: "Fundamentos de la ciberseguridad",
+    issuer: "Google",
+    date: "2024",
+    link: "https://www.coursera.org/account/accomplishments/records/DL6PQ53FHJU8",
+  },
+  {
+    name: "Developing Interpersonal Skills",
+    issuer: "IBM",
+    date: "2024",
+    link: "https://www.coursera.org/account/accomplishments/records/Q9US8922XCH6v",
+  },
+  {
+    name: "Cómo resolver problemas y tomar decisiones con eficacia",
+    issuer: "University of California, Irvine",
+    date: "2024",
+    link: "https://www.coursera.org/account/accomplishments/records/7K3QVQ4R49LC",
+  },
+  {
+    name: "Building Web Applications in PHP",
+    issuer: "University of Michigan",
+    date: "2024",
+    link: "https://www.coursera.org/account/accomplishments/records/2HRLHCV4WXDE",
+  },
+  {
+    name: "Cómo resolver problemas y tomar decisiones con eficacia",
+    issuer: "University of Michigan",
+    date: "2024",
+    link: "https://www.coursera.org/account/accomplishments/records/2HRLHCV4WXDE",
+  },
+];
+
+const timelineEvents = [
+  {
+    title: "Admission to Systems Engineering",
+    period: "2021",
+    description: "Entrance to the Universidad el Bosque, Colombia, Bogotá D.C.",
+    type: "education",
+  },
+  {
+    title: "Programming competence",
+    period: "2024",
+    description: "Second place in the Universidad el Bosque event",
+    type: "event",
+  },
+];
+
+const aboutMe = {
+  description:
+    "System Engineer passionate about programming logic, with solid knowledge in Java, SQL, Python and more. Constantly moved by curiosity in technology and programming. I firmly believe in creating elegant solutions without compromising final functionality. My motto is: 'Do good things without losing the final functionality.' Also, I quickly adapt to new environments and learn quickly through practice.",
+  tags: [
+    "Problem Solver",
+    "Fast Learner",
+    "Innovative",
+    "Detail-oriented",
+    "Adaptable",
+    "Quick Thinker",
+    "Curious",
+    "Elegant Solutions",
+    "Tech Enthusiast",
+  ],
+};
+---
+
+<Layout title="My Portfolio">
+  <main class="container mx-auto px-4 py-8">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+    >
+      <!-- Profile Card -->
+      <div
+        class="col-span-1 md:col-span-2 lg:col-span-2 bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300 animate-float"
+      >
+        <img
+          src="/src/assets/catavar.png"
+          alt="Profile"
+          class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-primary-light dark:border-primary-dark"
+        />
+        <h1
+          class="text-4xl font-bold text-gray-800 dark:text-white text-center mb-4"
+        >
+          Miguel Linares
+        </h1>
+        <p class="text-gray-600 dark:text-gray-300 text-center text-lg">
+          System Engineer
+        </p>
+      </div>
+
+      <!-- Social Links -->
+      <div
+        class="bg-secondary-light dark:bg-secondary-dark rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-shadow duration-300"
+      >
+        <h2
+          class="text-2xl font-bold mb-4 text-gray-800 dark:text-white flex items-center gap-2"
+        >
+          <Icon name="connect" class="w-6 h-6" />
+          Connect
+        </h2>
+        <div class="flex justify-around">
+          <a
+            href="https://github.com/MikaNiatsu"
+            class="text-gray-700 dark:text-white hover:text-primary-dark transition-colors"
+          >
+            <Icon name="github" class="w-8 h-8" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/miguel-linares-saenz-7a654520b"
+            class="text-gray-700 dark:text-white hover:text-primary-dark transition-colors"
+          >
+            <Icon name="linkedin" class="w-8 h-8" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Certificates Box -->
+      <div
+        class="bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-shadow duration-300"
+      >
+        <h2
+          class="text-2xl font-bold mb-4 text-gray-800 dark:text-white flex items-center gap-2"
+        >
+          <Icon name="certificate" class="w-6 h-6" />
+          Certificates
+        </h2>
+        <div class="space-y-4">
+          {
+            certificates.slice(0, 4).map((cert) => (
+              <div class="certificate-slot">
+                <a
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block p-4 bg-gray-50 dark:bg-gray-700 rounded-xl hover:transform hover:scale-105 transition-all duration-300"
+                >
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <h3 class="font-semibold text-gray-800 dark:text-white">
+                        {cert.name}
+                      </h3>
+                      <p class="text-sm text-gray-600 dark:text-gray-300">
+                        {cert.issuer} - {cert.date}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- About Me Box -->
+      <div
+        class="bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-shadow duration-300"
+      >
+        <h2
+          class="text-2xl font-bold mb-4 text-gray-800 dark:text-white flex items-center gap-2"
+        >
+          <Icon name="user" class="w-6 h-6" />
+          About Me
+        </h2>
+        <div class="prose dark:prose-invert max-w-none">
+          <p class="text-gray-600 dark:text-gray-300">
+            {aboutMe.description}
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {
+              aboutMe.tags.map((tag) => (
+                <span class="px-3 py-1 bg-primary-light/10 dark:bg-primary-dark/10 text-primary-dark dark:text-primary-light rounded-full text-sm">
+                  {tag}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline Box -->
+      <div
+        class="bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-shadow duration-300"
+      >
+        <h2
+          class="text-2xl font-bold mb-4 text-gray-800 dark:text-white flex items-center gap-2"
+        >
+          <Icon name="timeline" class="w-6 h-6" />
+          Journey
+        </h2>
+        <div class="relative">
+          <div
+            class="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700"
+          >
+          </div>
+          <div class="space-y-8 relative">
+            {
+              timelineEvents.map((event) => (
+                <div class="relative pl-8">
+                  <div class="absolute left-0 top-1.5 w-8 h-8 bg-primary-light dark:bg-primary-dark rounded-full flex items-center justify-center">
+                    <div class="w-3 h-3 bg-white rounded-full" />
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-gray-800 dark:text-white">
+                      {event.title}
+                    </h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">
+                      {event.period}
+                    </p>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">
+                      {event.description}
+                    </p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+      <!-- Skills Grid -->
+      <div
+        class="skills-container bg-accent-light dark:bg-accent-dark rounded-3xl p-6 shadow-xl"
+      >
+        <h2
+          class="text-2xl font-bold mb-4 text-gray-800 dark:text-white flex items-center gap-2"
+        >
+          <Icon name="star" class="w-6 h-6" />
+          Skills
+        </h2>
+        <div class="skills-grid md:grid-cols-3 grid-cols-2 gap-4">
+          <div class="skill-slot"></div>
+          <div class="skill-slot"></div>
+          <div class="skill-slot"></div>
+          <div class="skill-slot"></div>
+          <div class="skill-slot hidden md:block"></div>
+          <div class="skill-slot hidden md:block"></div>
+        </div>
+      </div>
+
+      <!-- Projects -->
+      {
+        projects.map((project) => (
+          <div class="bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+            <div class="overflow-hidden rounded-full border-2 border-gray-200 dark:border-gray-700 mb-4">
+              <img
+                src={project.image}
+                alt={project.title}
+                class="w-full h-auto"
+              />
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">
+              {project.title}
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              {project.description}
+            </p>
+            <a
+              href={project.link}
+              class="inline-block bg-primary-light dark:bg-primary-dark text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+            >
+              Learn More
+            </a>
+          </div>
+        ))
+      }
+      <!-- Contact Form -->
+      <div
+        class="col-span-1 md:col-span-3 bg-purple-light dark:bg-purple-dark rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300"
+      >
+        <h2
+          class="text-2xl font-bold mb-6 text-gray-800 dark:text-white text-center"
+        >
+          Get in Touch
+        </h2>
+
+        <form id="contactForm" class="max-w-2xl mx-auto space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Name Input -->
+            <div class="form-group">
+              <label
+                for="name"
+                class="block text-sm font-medium text-gray-700 dark:text-white mb-2"
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark focus:border-transparent transition duration-200"
+                placeholder="John Doe"
+              />
+            </div>
+
+            <!-- Email Input -->
+            <div class="form-group">
+              <label
+                for="email"
+                class="block text-sm font-medium text-gray-700 dark:text-white mb-2"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark focus:border-transparent transition duration-200"
+                placeholder="john@example.com"
+              />
+            </div>
+          </div>
+
+          <!-- Subject Input -->
+          <div class="form-group">
+            <label
+              for="subject"
+              class="block text-sm font-medium text-gray-700 dark:text-white mb-2"
+            >
+              Subject
+            </label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              required
+              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark focus:border-transparent transition duration-200"
+              placeholder="Project Inquiry"
+            />
+          </div>
+
+          <!-- Message Input -->
+          <div class="form-group">
+            <label
+              for="message"
+              class="block text-sm font-medium text-gray-700 dark:text-white mb-2"
+            >
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="5"
+              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark focus:border-transparent transition duration-200 resize-none"
+              placeholder="Your message here..."></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="text-center">
+            <button
+              type="submit"
+              class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-primary-light dark:bg-primary-dark hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-light dark:focus:ring-primary-dark transition duration-200"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                ></path>
+              </svg>
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+  <style>
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .skill-slot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.75rem;
+      background-color: white;
+      border-radius: 0.75rem;
+      transition: all 0.3s ease;
+      min-height: 5rem;
+      color: white;
+    }
+
+    .skill-slot:hover {
+      transform: scale(1.05);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .skill-slot {
+        background-color: white;
+        color: white;
+      }
+    }
+    .certificate-slot {
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+  </style>
+  <script>
+    const skills = [
+      { name: "JavaScript", icon: "javascript" },
+      { name: "TypeScript", icon: "typescript" },
+      { name: "Java", icon: "java" },
+      { name: "SpringBoot", icon: "spring" },
+      { name: "SQL", icon: "sql" },
+      { name: "HTML", icon: "html" },
+      { name: "CSS", icon: "css" },
+      { name: "Tailwind", icon: "tailwind" },
+      { name: "Astro", icon: "astro" },
+      { name: "Next.js", icon: "nextjs" },
+      { name: "PHP", icon: "php" },
+      { name: "Laravel", icon: "laravel" },
+      { name: "Node.js", icon: "nodejs" },
+      { name: "Python", icon: "python" },
+      { name: "Git", icon: "git" },
+      { name: "Bash", icon: "bash" },
+    ];
+
+    function updateSkills() {
+      const slots = document.querySelectorAll(".skill-slot");
+      const currentSkills = [...slots].map((slot) => slot.dataset.skill);
+
+      const availableSkills = skills.filter(
+        (skill) => !currentSkills.includes(skill.name)
+      );
+      const newSkills = [];
+
+      for (let i = 0; i < 6; i++) {
+        const randomIndex = Math.floor(Math.random() * availableSkills.length);
+        newSkills.push(availableSkills.splice(randomIndex, 1)[0]);
+        if (availableSkills.length === 0) {
+          availableSkills.push(
+            ...skills.filter(
+              (skill) => !newSkills.map((s) => s.name).includes(skill.name)
+            )
+          );
+        }
+      }
+
+      slots.forEach((slot, index) => {
+        const skill = newSkills[index];
+        slot.style.opacity = "0";
+
+        setTimeout(() => {
+          slot.innerHTML = `
+            <img src="/src/icons/${skill.icon}.svg" class="w-10 h-10 text-white" alt="${skill.name}">
+            <span class="mt-2 text-sm text-amber-500">${skill.name}</span>
+          `;
+          slot.dataset.skill = skill.name;
+          slot.style.opacity = "1";
+        }, 300);
+      });
+    }
+
+    updateSkills();
+
+    setInterval(updateSkills, 5000);
+  </script><script>
+    const skills = [
+      { name: "JavaScript", icon: "javascript" },
+      { name: "TypeScript", icon: "typescript" },
+      { name: "Java", icon: "java" },
+      { name: "SpringBoot", icon: "spring" },
+      { name: "SQL", icon: "sql" },
+      { name: "HTML", icon: "html" },
+      { name: "CSS", icon: "css" },
+      { name: "Tailwind", icon: "tailwind" },
+      { name: "Astro", icon: "astro" },
+      { name: "Next.js", icon: "nextjs" },
+      { name: "PHP", icon: "php" },
+      { name: "Laravel", icon: "laravel" },
+      { name: "Node.js", icon: "nodejs" },
+      { name: "Python", icon: "python" },
+      { name: "Git", icon: "git" },
+      { name: "Bash", icon: "bash" },
+    ];
+    const certificates = [
+      {
+        name: "COMPLEMENTARIA VIRTUAL EN ARQUITECTURA DE COMPUTADORES",
+        issuer: "Servicio Nacional de Aprendizaje (SENA)",
+        date: "2021",
+        link: "#",
+      },
+      {
+        name: "Fundamentos profesionales del desarrollo de software",
+        issuer: "Microsoft y LinkedIn",
+        date: "2023",
+        link: "https://www.linkedin.com/learning/certificates/9e3d04369dd5f1fc64bc9664dadfb0016b46853fbcb15f82525a0392fffafd14",
+      },
+      {
+        name: "Fundamentos esenciales de la programación",
+        issuer: "LinkedIn",
+        date: "2023",
+        link: "https://www.linkedin.com/learning/certificates/bc74b51657e118ff67901dae410437def37dd0cb85fd5d1004f0ba8e4e3db6ce",
+      },
+      {
+        name: "Fundamentos de la ciberseguridad",
+        issuer: "Google",
+        date: "2024",
+        link: "https://www.coursera.org/account/accomplishments/records/DL6PQ53FHJU8",
+      },
+      {
+        name: "Developing Interpersonal Skills",
+        issuer: "IBM",
+        date: "2024",
+        link: "https://www.coursera.org/account/accomplishments/records/Q9US8922XCH6",
+      },
+      {
+        name: "Cómo resolver problemas y tomar decisiones con eficacia",
+        issuer: "University of California, Irvine",
+        date: "2024",
+        link: "https://www.coursera.org/account/accomplishments/records/7K3QVQ4R49LC",
+      },
+      {
+        name: "Building Web Applications in PHP",
+        issuer: "University of Michigan",
+        date: "2024",
+        link: "https://www.coursera.org/account/accomplishments/records/2HRLHCV4WXDE",
+      },
+    ];
+
+    function updateCertificates() {
+      const slots = document.querySelectorAll(".certificate-slot");
+      const currentCerts = [...slots].map(
+        (slot) => slot.querySelector("h3").textContent
+      );
+
+      const availableCerts = certificates.filter(
+        (cert) => !currentCerts.includes(cert.name)
+      );
+      const newCerts = [];
+
+      for (let i = 0; i < 4; i++) {
+        const randomIndex = Math.floor(Math.random() * availableCerts.length);
+        newCerts.push(availableCerts.splice(randomIndex, 1)[0]);
+        if (availableCerts.length === 0) {
+          availableCerts.push(
+            ...certificates.filter(
+              (cert) => !newCerts.map((c) => c.name).includes(cert.name)
+            )
+          );
+        }
+      }
+
+      slots.forEach((slot, index) => {
+        const cert = newCerts[index];
+        slot.style.opacity = "0";
+
+        setTimeout(() => {
+          slot.innerHTML = `
+          <a
+            href="${cert.link}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block p-4 bg-gray-50 dark:bg-gray-700 rounded-xl hover:transform hover:scale-105 transition-all duration-300"
+          >
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="font-semibold text-gray-800 dark:text-white">
+                  ${cert.name}
+                </h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">
+                  ${cert.issuer} - ${cert.date}
+                </p>
+              </div>
+            </div>
+          </a>
+        `;
+          slot.style.opacity = "1";
+        }, 300);
+      });
+    }
+
+    // Initial update and set interval
+    updateCertificates();
+    setInterval(updateCertificates, 5000);
+
+    function updateSkills() {
+      const slots = document.querySelectorAll(".skill-slot");
+      const currentSkills = [...slots].map((slot) => slot.dataset.skill);
+
+      const availableSkills = skills.filter(
+        (skill) => !currentSkills.includes(skill.name)
+      );
+      const newSkills = [];
+
+      for (let i = 0; i < 6; i++) {
+        const randomIndex = Math.floor(Math.random() * availableSkills.length);
+        newSkills.push(availableSkills.splice(randomIndex, 1)[0]);
+        if (availableSkills.length === 0) {
+          availableSkills.push(
+            ...skills.filter(
+              (skill) => !newSkills.map((s) => s.name).includes(skill.name)
+            )
+          );
+        }
+      }
+
+      slots.forEach((slot, index) => {
+        const skill = newSkills[index];
+        slot.style.opacity = "0";
+
+        setTimeout(() => {
+          slot.innerHTML = `
+          <img src="/src/icons/${skill.icon}.svg" class="w-10 h-10 dark:text-white" alt="${skill.name}">
+          <span class="mt-2 text-sm text-gray-600 dark:text-gray-300">${skill.name}</span>
+        `;
+          slot.dataset.skill = skill.name;
+          slot.style.opacity = "1";
+        }, 300);
+      });
+    }
+    updateSkills();
+    setInterval(updateSkills, 5000);
+  </script>
+</Layout>
